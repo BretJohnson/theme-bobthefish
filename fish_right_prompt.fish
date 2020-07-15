@@ -56,14 +56,8 @@ function __bobthefish_pretty_ms -S -a ms -a interval -d 'Millisecond formatting 
 end
 
 function __bobthefish_timestamp -S -d 'Show the current timestamp'
-    [ "$theme_display_date" = "no" ]
-    and return
-
-    set -q theme_date_format
-    or set -l theme_date_format "+%c"
-
     echo -n ' '
-    env TZ="$theme_date_timezone" date $theme_date_format
+    env date "+%T"
 end
 
 function fish_right_prompt -d 'bobthefish is all about the right prompt'
